@@ -22,12 +22,17 @@ import voice_greetings
 ###########################################
 #Initializing  tts
 def say(text):
-    command =[
-        'mpg123',
-        '-q',#quite mode
-        'http://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=' + text + '&tl=bn'
-    ]
-    subprocess.run(command)
+    max_chunk_length = 150  # Set an arbitrary maximum length for each chunk
+    chunks = [text[i:i + max_chunk_length] for i in range(0, len(text), max_chunk_length)]
+
+    for chunk in chunks:
+        command = [
+            'mpg123',
+            '-q',  # Quiet mode
+            f'http://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q={chunk}&tl=en'
+        ]
+        subprocess.run(command)
+        time.sleep(0.5)  # Add a small delay between chunks to ensure smooth playback
 
 def takeCommand():
     r = sr.Recognizer()
