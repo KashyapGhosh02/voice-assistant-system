@@ -5,6 +5,7 @@ THIS IS KASHYAP
 THIS IS MY FINAL YEAR PROJECT VOICE ASSISTANT SYSTEM 
 
 ALL THE LIBARIES / PACKAGE USES AVAILABLE IN "site-packages"
+recommending using virtual environment for this project 
 
 --python version use -- 
 
