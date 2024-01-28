@@ -10,6 +10,3 @@ recommending using virtual environment for this project
 --python version use -- 
 
 python ---->3.11.2
-
---LIBARIES USED--
-'http://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=' + text + '&tl=en'
