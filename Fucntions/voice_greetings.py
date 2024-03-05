@@ -8,6 +8,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import json
 import random
 
+
 file_path_1 = r"C:\Users\kashy\Documents\project\project\chatbot_model.joblib"
 loaded_model = joblib.load(file_path_1)
 
