@@ -23,28 +23,41 @@
         "patterns": ["not good", "disappointed", "unsatisfied", "poor service", "needs improvement", "could be better"],
         "responses": ["I'm sorry to hear that. Can you please provide more details so I can assist you better?", "I apologize for the inconvenience. Let me help resolve the issue.", "I'm sorry you're not satisfied. Please let me know how I can improve.", "Your feedback is valuable. I'll work on improving."]
     },
-   
     "help": {
         "patterns": ["help", "can you help me?", "I need assistance", "support"],
         "responses": ["Sure, I'll do my best to assist you.", "Of course, I'm here to help!", "How can I assist you?", "I'll help you with your query."]
     },
-  
-    
     "movies": {
         "patterns": ["movie suggestions", "recommend a movie", "what should I watch?", "best movies"],
         "responses": ["which one Hollywood Bollywood or Tollywood?"]
     },
-    "sports": {
-        "patterns": ["sports news", "score updates", "latest sports events", "upcoming games"],
-        "responses": ["I'll get you the latest sports updates.Please tell the name of the sport or match"]
+    "tv_series": {
+        "patterns": ["TV show recommendations", "recommend a TV series", "what to watch on TV", "best TV shows"],
+        "responses": ["Sure, I can recommend some TV series. What genre are you interested in?"]
     },
-    "gaming": {
-        "patterns": ["video game recommendations", "best games to play", "recommend a game", "gaming suggestions"],
-        "responses": ["Please name the game you want to play"]
+    "ip_address": {
+        "patterns": ["What is my IP address?", "IP address lookup", "find my IP", "IP information"],
+        "responses": ["I can help you find your IP address. Please provide more details."]
     },
-        "tech_support": {
-        "patterns": ["technical help", "computer issues", "troubleshooting", "IT support"],
-        "responses": ["I can assist with technical issues. What problem are you facing?", "Tell me about the technical issue you're experiencing."]
+    "email": {
+        "patterns": ["email help", "send an email", "email issues", "email support"],
+        "responses": ["I can assist with email-related queries. What problem are you facing?", "Tell me about the email issue you're experiencing."]
+    },
+    "note": {
+        "patterns": ["create a note", "write a note", "note-taking", "remind me"],
+        "responses": ["I can help you with note-taking. What would you like to note down or be reminded of?"]
+    },
+    "medicine_reminder": {
+        "patterns": ["set medicine reminder", "remind me to take medicine", "medicine schedule", "health reminders"],
+        "responses": ["I can help you set up a medicine reminder. Please provide the details."]
+    },
+    "stopwatch": {
+        "patterns": ["start a stopwatch", "stopwatch timer", "measure time", "elapsed time"],
+        "responses": ["Sure, I can assist with a stopwatch. Would you like to start or stop it?"]
+    },
+    "math": {
+        "patterns": ["math help", "solve equations", "mathematics assistance", "calculate"],
+        "responses": ["I can assist with math problems. Please provide the mathematical expression or question."]
     },
     "book_recommendation": {
         "patterns": ["recommend a book", "good books to read", "book suggestions", "what should I read?"],
@@ -94,5 +107,4 @@
         "patterns":["none","leave it","later","no","Nothing"],
         "responses":["Goodbye Then"]
     }
-  
-    }
+}
