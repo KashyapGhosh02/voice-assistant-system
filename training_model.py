@@ -6,19 +6,24 @@ import os
 import logging
 logging.disable(logging.WARNING)
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-from keras.preprocessing.text import Tokenizer
-from keras_preprocessing.sequence import pad_sequences
-from sklearn.preprocessing import LabelEncoder
-from tensorflow.python.keras.models import Sequential
-from tensorflow.python.keras.layers import Dense, Embedding, GlobalAveragePooling1D
+try:
+    from keras.preprocessing.text import Tokenizer
+    from keras_preprocessing.sequence import pad_sequences
+    from sklearn.preprocessing import LabelEncoder
+    from tensorflow.python.keras.models import Sequential
+    from tensorflow.python.keras.layers import Dense, Embedding, GlobalAveragePooling1D
 
-import tensorflow as tf  
+    import tensorflow as tf 
+except Exception as e:
+    print(f"Error message:{e}") 
+
 
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 
 # Download NLTK resources
+nltk.download('stopwords')
 nltk.download('punkt')
 stop_words = set(stopwords.words('english'))
 ps = PorterStemmer()
@@ -81,7 +86,7 @@ model.compile(loss='sparse_categorical_crossentropy',
                optimizer='adam', metrics=['accuracy'])
 
 model.summary()
-epochs = 500
+epochs = 400
 history = model.fit(padded_sequences, np.array(training_labels), epochs=epochs)
 
 # accuracy of the model
@@ -126,7 +131,8 @@ except Exception as e :
 # # print(f"TensorFlow version: {tf.__version__}")
 # # print(f"Keras version: {tf.keras.__version__}")
 
-#prediction fucntion    
+# load_model=tf.keras.models.load_model('Data\model_trained.h5')
+# #prediction fucntion    
 # def predict_intent_with_nltk(model, tokenizer, label_encoder, text, max_len, ps, stop_words):
 #     # Tokenize, remove stop words, and apply stemming
 #     words = nltk.word_tokenize(text.lower())
@@ -134,11 +140,12 @@ except Exception as e :
 #     processed_text = ' '.join(words)
 #     print(processed_text)
 #     # Tokenize and pad the processed input text
-#     sequence = tokenizer.texts_to_sequences([processed_text])
-#     padded_sequence = pad_sequences(sequence, truncating='post', maxlen=max_len)
+#     #sequence = tokenizer.texts_to_sequences([processed_text])
+#     #padded_sequence = pad_sequences(sequence, truncating='post', maxlen=max_len)
 
 #     # Make the prediction using the trained model
-#     result = model.predict(padded_sequence, verbose=False)
+#     result = model.predict(pad_sequences(tokenizer.texts_to_sequences([text]),
+#                                                                           truncating='post', maxlen=max_len), verbose=False)
 
 #     # Convert the model's output to the predicted intent
 #     predicted_intent = label_encoder.inverse_transform([np.argmax(result)])[0]
@@ -147,9 +154,9 @@ except Exception as e :
 # def response_generator():
 #     pass
 
-# Example usage:
-#text_to_predict = "can you recommend me  movies"
-#text_len=len(text_to_predict)
-#predicted_intent = predict_intent_with_nltk(model, tokenizer, lbl_encoder, text_to_predict, text_len, ps, stop_words)
-#print(f"Predicted Intent: {predicted_intent}")
+# #Example usage:
+# text_to_predict = "can you recommend me  movies"
+# text_len=min(max_len,len(text_to_predict))
+# predicted_intent = predict_intent_with_nltk(load_model, tokenizer, lbl_encoder, text_to_predict, text_len, ps, stop_words)
+# print(f"Predicted Intent: {predicted_intent}")
 
